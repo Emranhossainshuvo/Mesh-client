@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,12 +54,14 @@ const Navbar = () => {
           >
             About
           </a>
+          <Link to='/login'>
           <a
             href="#"
             className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500"
           >
-            Contact
+            Login
           </a>
+          </Link>
         </div>
       </div>
     </nav>

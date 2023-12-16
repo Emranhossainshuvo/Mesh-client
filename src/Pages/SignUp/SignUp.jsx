@@ -2,6 +2,16 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+  const handleSignUpUser = (e) => {
+    e.preventDefault();
+    const form = e.target.form;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirmPassword = form.confirm_password.value;
+    const user = { email, password, confirmPassword };
+    console.log(user);
+  };
+
   return (
     <>
       <section className="bg-gray-50 dark:bg-gray-900">
@@ -17,7 +27,7 @@ const SignUp = () => {
             />
             Mesh
             <Helmet>
-                <title>Mesh | Sign up </title>
+              <title>Mesh | Sign up </title>
             </Helmet>
           </a>
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -33,7 +43,6 @@ const SignUp = () => {
                   <input
                     type="email"
                     name="email"
-                    id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
                     required=""
@@ -57,8 +66,8 @@ const SignUp = () => {
                     Confirm password
                   </label>
                   <input
-                    type="confirm-password"
-                    name="confirm-password"
+                    type="password"
+                    name="confirm_password"
                     id="confirm-password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -87,13 +96,13 @@ const SignUp = () => {
                     </label>
                   </div>
                 </div>
-                <button
+                <input
                   type="submit"
+                  onClick={handleSignUpUser}
                   className="w-full text-white bg-[#3F2305] hover:bg-[#3F2305] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#3F2305] dark:hover:bg-[#3F2305] dark:focus:ring-[#3F2305]"
-                >
-                  Create an account
-                </button>
-                <Link to='/login'>
+                  value="Create an account"
+                />
+                <Link to="/login">
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                     Already have an account?{" "}
                     <a
