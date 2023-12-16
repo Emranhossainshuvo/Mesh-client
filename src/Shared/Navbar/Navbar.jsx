@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ImVideoCamera } from "react-icons/im";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
