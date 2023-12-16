@@ -2,6 +2,16 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+
+  const handleLogin = e => {
+    e.preventDefault(); 
+    const form = e.target.form; 
+    const email = form.email.value; 
+    const password = form.password.value; 
+    const user = {email, password}
+    console.log(user); 
+  }
+
   return (
     <>
       <section className="bg-gray-50 dark:bg-gray-900">
@@ -76,13 +86,14 @@ const Login = () => {
                     Forgot password?
                   </a>
                 </div>
-                <button
+                <input
                   type="submit"
+                  value="Login"
+                  onClick={handleLogin}
                   className="w-full text-white bg-[#3F2305] hover:bg-[#3F2305] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#3F2305] dark:hover:bg-[#3F2305] dark:focus:ring-[#3F2305]"
-                >
-                  Sign in
-                </button>
-                <Link to='/signup'>
+                />
+                  
+                <Link to="/signup">
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                     Don’t have an account yet?{" "}
                     <a
