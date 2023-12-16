@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ImVideoCamera } from "react-icons/im";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,12 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white font-bold text-xl">Your Logo</div>
+        {/* Use the direct URL of the image in the src attribute */}
+        <img
+          src="https://i.ibb.co/PDGbWGh/icons8-video-conference-64.png"
+          alt="Video Camera Icon"
+          className="text-white font-bold text-xl"
+        />
 
         <div className="lg:hidden">
           <button
