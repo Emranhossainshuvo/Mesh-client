@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
 
@@ -11,6 +13,19 @@ const Login = () => {
     const user = {email, password}
     console.log(user); 
   }
+
+  const { googleLogin } = useContext(AuthContext);
+
+  const handleGoogle = () => {
+    googleLogin()
+    .then(res => {
+      const user = res.user; 
+      console.log(user)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  };
 
   return (
     <>
@@ -105,6 +120,7 @@ const Login = () => {
                   </p>
                 </Link>
               </form>
+                <button onClick={handleGoogle}>Google login</button>
             </div>
           </div>
         </div>

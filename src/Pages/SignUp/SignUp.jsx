@@ -128,8 +128,8 @@ const SignUp = () => {
                     </a>
                   </p>
                 </Link>
-                <button onClick={handleGoogle}>googleLogin</button>
               </form>
+                <button onClick={handleGoogle}>googleLogin</button>
             </div>
           </div>
         </div>
