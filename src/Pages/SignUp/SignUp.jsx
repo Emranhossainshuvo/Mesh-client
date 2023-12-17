@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const SignUp = () => {
   const handleSignUpUser = (e) => {
@@ -10,6 +12,19 @@ const SignUp = () => {
     const confirmPassword = form.confirm_password.value;
     const user = { email, password, confirmPassword };
     console.log(user);
+  };
+
+  const { googleLogin } = useContext(AuthContext);
+
+  const handleGoogle = () => {
+    googleLogin()
+    .then(res => {
+      const user = res.user; 
+      console.log(user)
+    })
+    .catch(error => {
+      console.log(error)
+    })
   };
 
   return (
@@ -113,6 +128,7 @@ const SignUp = () => {
                     </a>
                   </p>
                 </Link>
+                <button onClick={handleGoogle}>googleLogin</button>
               </form>
             </div>
           </div>
