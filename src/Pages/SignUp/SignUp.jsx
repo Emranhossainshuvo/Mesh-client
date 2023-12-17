@@ -2,6 +2,9 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import {  FaGoogle } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa";
+
 
 const SignUp = () => {
   const handleSignUpUser = (e) => {
@@ -14,7 +17,7 @@ const SignUp = () => {
     console.log(user);
   };
 
-  const { googleLogin } = useContext(AuthContext);
+  const { googleLogin, githubLogin } = useContext(AuthContext);
 
   const handleGoogle = () => {
     googleLogin()
@@ -26,6 +29,17 @@ const SignUp = () => {
       console.log(error)
     })
   };
+
+  const handleGithub = () => {
+    githubLogin()
+    .then(res => {
+      const user = res.user; 
+      console.log(user)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
 
   return (
     <>
@@ -129,7 +143,8 @@ const SignUp = () => {
                   </p>
                 </Link>
               </form>
-                <button onClick={handleGoogle}>googleLogin</button>
+                <button onClick={handleGoogle}><FaGoogle /></button>
+                <button onClick={handleGithub}><FaGithub /></button>
             </div>
           </div>
         </div>
