@@ -1,10 +1,10 @@
+import Navbar from '../../Shared/Navbar/Navbar'
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaGoogle } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
-
 
 const Login = () => {
 
@@ -43,6 +43,7 @@ const Login = () => {
 
   return (
     <>
+    <Navbar></Navbar>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <a

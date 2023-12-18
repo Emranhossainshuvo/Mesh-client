@@ -42,27 +42,26 @@ const Navbar = () => {
         </div>
 
         <div className={`lg:flex ${isOpen ? "block" : "hidden"}`}>
-          <a
-            href="#"
-            className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-4"
-          >
-            Home
-          </a>
-          <Link to='/about'>
-            <a
+          <Link to='/'>
+            <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-4">
+              Home
+            </li>
+          </Link>
+          <Link to="/about">
+            <li
               href="#"
               className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-4"
             >
               About
-            </a>
+            </li>
           </Link>
           <Link to="/login">
-            <a
+            <li
               href="#"
               className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500"
             >
               Login
-            </a>
+            </li>
           </Link>
         </div>
       </div>
