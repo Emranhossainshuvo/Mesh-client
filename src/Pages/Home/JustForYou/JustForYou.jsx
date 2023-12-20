@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import ForYouItems from '../../../Shared/ForYouItems/ForYouItems';
+import SectionTitle from '../../../SectionTitle/SectionTitle';
 
 const JustForYou = () => {
 
@@ -16,6 +17,7 @@ const JustForYou = () => {
 
     return (
         <>
+        <SectionTitle title="Just for you"></SectionTitle>
         <div>
             {
                 menu.map(item => <ForYouItems key={ item._id}
