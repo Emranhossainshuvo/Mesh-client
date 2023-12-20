@@ -7,7 +7,7 @@ const ForYouItems = ({ item }) => {
 
   return (
     <div className="mt-20">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-screen-2xl mx-auto">
         <div className="flex w-90 bg-white p-4 rounded-lg shadow-md mx-auto">
           <div className="w-1/2">
             <img

@@ -24,7 +24,6 @@ const JustForYou = () => {
                 item={item}></ForYouItems>)
             }
         </div>
-         <p>hi this is from just for you {menu.length} </p>   
         </>
     );
 };

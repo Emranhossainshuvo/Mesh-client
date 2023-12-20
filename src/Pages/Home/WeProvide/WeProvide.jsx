@@ -2,12 +2,11 @@ import SectionTitle from "../../../SectionTitle/SectionTitle";
 
 const WeProvide = () => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-screen-2xl mx-auto">
       <SectionTitle title="We provide"></SectionTitle>
 
-      <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="w-full mx-auto grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3">
        
-        
         <div className="card w-96 bg-base-100 shadow-xl">
           <figure className="px-10 pt-10">
             <img
@@ -20,7 +19,7 @@ const WeProvide = () => {
             <h2 className="card-title">Pastels</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
+              <button className="btn bg-[#8577AA] text-[#FFF8C9]">View all </button>
             </div>
           </div>
         </div>
@@ -37,7 +36,7 @@ const WeProvide = () => {
             <h2 className="card-title">Canvas & Surfaces</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
+              <button className="btn bg-[#8577AA] text-[#FFF8C9]">View all </button>
             </div>
           </div>
         </div>
@@ -53,7 +52,7 @@ const WeProvide = () => {
             <h2 className="card-title">Pencils</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
+              <button className="btn bg-[#8577AA] text-[#FFF8C9]">View all </button>
             </div>
           </div>
         </div>
@@ -69,7 +68,7 @@ const WeProvide = () => {
             <h2 className="card-title">Easels</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
+              <button className="btn bg-[#8577AA] text-[#FFF8C9]">View all </button>
             </div>
           </div>
         </div>
@@ -85,7 +84,7 @@ const WeProvide = () => {
             <h2 className="card-title">Palette Knives</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
+              <button className="btn bg-[#8577AA] text-[#FFF8C9]">View all </button>
             </div>
           </div>
         </div>
@@ -101,7 +100,7 @@ const WeProvide = () => {
             <h2 className="card-title">Markers</h2>
             <p>If a dog chews shoes whose shoes does he choose?</p>
             <div className="card-actions">
-              <button className="btn btn-primary">Buy Now</button>
+              <button className="btn bg-[#8577AA] text-[#FFF8C9]">View all </button>
             </div>
           </div>
         </div>
