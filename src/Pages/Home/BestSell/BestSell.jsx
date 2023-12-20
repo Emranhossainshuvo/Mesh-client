@@ -49,7 +49,7 @@ const BestSell = () => {
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div>
           <img
-            className="rounded-t-lg"
+            className="rounded-t-lf"
             src="https://i.ibb.co/3p1kzt3/animated-eraser-painting-easel.jpg"
             alt=""
           />
