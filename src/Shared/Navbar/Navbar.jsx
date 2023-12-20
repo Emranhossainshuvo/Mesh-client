@@ -68,7 +68,7 @@ const Navbar = () => {
   );
 
   return (
-    <>
+    <div className="max-w-7xl mx-auto">
       <div className="navbar rounded-xl  mt-2 bg-[#7DB9B6] text-black">
         <div className="navbar-start">
           <div className="dropdown">
@@ -144,7 +144,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

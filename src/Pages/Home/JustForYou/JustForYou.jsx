@@ -18,7 +18,8 @@ const JustForYou = () => {
         <>
         <div>
             {
-                menu.map(item => <ForYouItems key={ item._id}></ForYouItems>)
+                menu.map(item => <ForYouItems key={ item._id}
+                item={item}></ForYouItems>)
             }
         </div>
          <p>hi this is from just for you {menu.length} </p>   
