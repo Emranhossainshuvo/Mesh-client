@@ -1,15 +1,15 @@
 import { Helmet } from "react-helmet-async";
-import Navbar from "../../../Shared/Navbar/Navbar";
 import Banner from "../Banner/Banner";
+import JustForYou from "../JustForYou/JustForYou";
 
 const Home = () => {
     return (
         <>
-        <Navbar></Navbar>
         <Banner></Banner>
         <Helmet>
             <title>Mesh | Home</title>
         </Helmet>
+        <JustForYou></JustForYou>
             <p>This is home</p>            
         </>
     );

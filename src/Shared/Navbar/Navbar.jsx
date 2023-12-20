@@ -1,71 +1,150 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { user, logOut, loading } = useContext(AuthContext);
+  const [isNavbarOpen, setNavbarOpen] = useState(false);
 
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
+  const handleHide = () => {
+    setNavbarOpen(false);
   };
 
+  const toggleUserDetail = () => {
+    if (loading) {
+      return <span className="loading loading-spinner loading-lg"></span>;
+    }
+    setNavbarOpen(!isNavbarOpen);
+    console.log(user.photoURL);
+  };
+
+  // logout the user
+
+  const handleLogOut = () => {
+    logOut();
+    // .then(res => {
+    //     // console.log(res)
+    // })
+  };
+
+  const navOptions = (
+    <>
+      <NavLink to="/">
+        <li className="bg-[#4D455D] text-[#DED0B6] md:rounded-s-2xl">
+          <a>Home</a>
+        </li>
+      </NavLink>
+      {user ? (
+        <NavLink to="/surveys">
+          <li className="bg-[#4D455D] text-[#DED0B6]">
+            <a>Survey</a>
+          </li>
+        </NavLink>
+      ) : (
+        <NavLink to="/login">
+          <li className="bg-[#4D455D] text-[#DED0B6]">
+            <a>Login</a>
+          </li>
+        </NavLink>
+      )}
+
+      {user ? (
+        <li onClick={handleLogOut} className="bg-[#4D455D] text-[#DED0B6] ">
+          <a>Logout</a>
+        </li>
+      ) : (
+        <NavLink to="/signup">
+          <li className="bg-[#4D455D] text-[#DED0B6] ">
+            <a>Sign up</a>
+          </li>
+        </NavLink>
+      )}
+      <NavLink to="/pricing">
+        <li className="bg-[#4D455D] text-[#DED0B6] md:rounded-r-2xl">
+          <a>Pricing</a>
+        </li>
+      </NavLink>
+    </>
+  );
+
   return (
-    <nav className="bg-gray-800 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Use the direct URL of the image in the src attribute */}
-        <img
-          src="https://i.ibb.co/PDGbWGh/icons8-video-conference-64.png"
-          alt="Video Camera Icon"
-          className="text-white font-bold text-xl"
-        />
-
-        <div className="lg:hidden">
-          <button
-            className="text-white focus:outline-none"
-            onClick={toggleNavbar}
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <>
+      <div className="navbar rounded-xl  mt-2 bg-[#7DB9B6] text-black">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              {isOpen ? (
-                <path d="M6 18L18 6M6 6l12 12"></path>
-              ) : (
-                <path d="M4 6h16M4 12h16m-7 6h7"></path>
-              )}
-            </svg>
-          </button>
+              {navOptions}
+            </ul>
+          </div>
+          <img
+            className="btn btn-ghost border-0 text-black text-xl"
+            src="https://i.ibb.co/PDGbWGh/icons8-video-conference-64.png"
+            alt=""
+          />
         </div>
-
-        <div className={`lg:flex ${isOpen ? "block" : "hidden"}`}>
-          <Link to='/'>
-            <li className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-4">
-              Home
-            </li>
-          </Link>
-          <Link to="/about">
-            <li
-              href="#"
-              className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-4"
-            >
-              About
-            </li>
-          </Link>
-          <Link to="/login">
-            <li
-              href="#"
-              className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500"
-            >
-              Login
-            </li>
-          </Link>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu h-12 menu-horizontal rounded-2xl text-[#F5E9CF]">
+            {navOptions}
+          </ul>
+        </div>
+        <div className="navbar-end">
+          {user ? (
+            <>
+              <img
+                onClick={toggleUserDetail}
+                className="w-16 h-16 cursor-pointer rounded-full mr-2"
+                src={user?.photoURL}
+                alt=""
+              />
+            </>
+          ) : (
+            <img
+              className="w-16 h-16 rounded-full mr-2 "
+              src="https://i.ibb.co/m98MvWN/icons8-user-90.png"
+              alt=""
+            />
+          )}
+          {isNavbarOpen && (
+            <div className="top-24 right-0 bg-white border rounded shadow-md p-4">
+              <ul onClick={handleHide} className="flex space-x-4">
+                <Link to="/addsurvey">
+                  <li className="hover:font-bold hover:text-normal">
+                    Add survey
+                  </li>
+                </Link>
+                <Link to="/allusers">
+                  <li className="hover:font-bold hover:text-normal">Users</li>
+                </Link>
+                <Link to="/managesurveys">
+                  <li className="hover:font-bold hover:text-normal">
+                    Manage Surveys
+                  </li>
+                </Link>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
-    </nav>
+    </>
   );
 };
 
