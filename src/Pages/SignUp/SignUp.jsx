@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import {  FaGoogle } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
-import Navbar from "../../Shared/Navbar/Navbar";
 
 
 const SignUp = () => {
